@@ -3,11 +3,20 @@ package xyz.gonzapico.kc_md;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeActivity extends BaseKCActivity {
+
+
+  private static List<DataModel> items = new ArrayList<>();
+
+  static {
+    for (int i = 1; i <= 10; i++) {
+      items.add(new DataModel("Sport " + i, "http://lorempixel.com/500/500/sports/" + i));
+    }
+  }
 
   private RecyclerView rvCards;
   @Override public int getLayout() {
@@ -19,6 +28,13 @@ public class HomeActivity extends BaseKCActivity {
     setUpTabLayout();
 
     setUpRecyclerView();
+    setUpAdapter();
+  }
+
+  private void setUpAdapter() {
+    DataAdapter adapter = new DataAdapter(items);
+    rvCards.setAdapter(adapter);
+    rvCards.setHasFixedSize(true);
   }
 
   private void setUpRecyclerView() {
