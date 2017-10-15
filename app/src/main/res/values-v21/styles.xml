@@ -1,10 +1,10 @@
 <resources>
 
-  <style name="MyMaterialTheme" parent="android:Theme.Material">
+  <style name="MyMaterialTheme" parent="BaseTheme">
     <!-- Customize your theme here. -->
-    <item name="colorPrimary">@color/colorPrimary</item>
-    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-    <item name="colorAccent">@color/colorAccent</item>
+    <item name="android:windowTranslucentStatus">true</item>
+    <item name="android:colorControlHighlight">@color/colorAccentTranslucent</item> 
+    <item name="android:windowSharedElementsUseOverlay">false</item>
   </style>
 
 </resources>
